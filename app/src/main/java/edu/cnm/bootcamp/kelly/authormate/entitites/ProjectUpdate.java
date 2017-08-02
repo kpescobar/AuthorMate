@@ -1,6 +1,8 @@
 package edu.cnm.bootcamp.kelly.authormate.entitites;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 import java.sql.Clob;
 import java.sql.Timestamp;
@@ -15,14 +17,14 @@ public class ProjectUpdate {
   @DatabaseField(columnName = "PROJECT_ID", canBeNull = false, foreign = true)
   private Project project;
 
-  @DatabaseField(columnName = "CREATED", readOnly = true)
+  @DatabaseField(columnName = "CREATED", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", format = "yyyy-MM-dd HH:mm:ss", readOnly = true)
   private Timestamp created;
 
   @DatabaseField(columnName = "COUNT", canBeNull = false)
   private Integer count;
 
   @DatabaseField(columnName = "NOTES")
-  private Clob notes;
+  private String notes;
 
   public ProjectUpdate() {
   }
@@ -39,7 +41,6 @@ public class ProjectUpdate {
     return created;
   }
 
-
   public Integer getCount() {
     return count;
   }
@@ -48,11 +49,11 @@ public class ProjectUpdate {
     this.count = count;
   }
 
-  public Clob getNotes() {
+  public String getNotes() {
     return notes;
   }
 
-  public void setNotes(Clob notes) {
+  public void setNotes(String notes) {
     this.notes = notes;
   }
 }

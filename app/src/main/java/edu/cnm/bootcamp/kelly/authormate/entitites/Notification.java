@@ -12,11 +12,11 @@ public class Notification {
   @DatabaseField(columnName = "PROJECT_ID", canBeNull = false, foreign = true)
   private Project project;
 
-  @DatabaseField(columnName = "ENABLED", canBeNull = false)
+  @DatabaseField(columnName = "ENABLED", canBeNull = false, defaultValue = "false")
   private Boolean enabled;
 
   @DatabaseField(columnName = "TIME", canBeNull = false)
-  private Time time;
+  private String time;
 
   public Notification() {
   }
@@ -37,11 +37,11 @@ public class Notification {
     this.enabled = enabled;
   }
 
-  public Time getTime() {
+  public String getTime() {
     return time;
   }
 
-  public void setTime(Time time) {
+  public void setTime(String time) {
     this.time = time;
   }
 }
