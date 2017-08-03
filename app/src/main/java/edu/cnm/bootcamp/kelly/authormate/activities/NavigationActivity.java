@@ -23,6 +23,7 @@ import edu.cnm.bootcamp.kelly.authormate.helpers.OrmHelper;
 public class NavigationActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -70,6 +71,13 @@ public class NavigationActivity extends AppCompatActivity
     navigationView.setNavigationItemSelectedListener(this);
   }
 
+  private void showInstructions(boolean show) {
+    View howToText = findViewById(R.id.how_to_text);
+    if(howToText != null) {
+      howToText.setVisibility(show ? View.VISIBLE: View.INVISIBLE);
+    }
+  }
+
   @Override
   public void onBackPressed() {
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -93,6 +101,11 @@ public class NavigationActivity extends AppCompatActivity
     // automatically handle clicks on the Home/Up button, so long
     // as you specify a parent activity in AndroidManifest.xml.
     int id = item.getItemId();
+    switch (id) {
+      case R.id.how_to_use:
+        showInstructions(true);
+        break;
+    }
 
     //noinspection SimplifiableIfStatement
 //    if (id == R.id.action_settings) {
@@ -105,25 +118,26 @@ public class NavigationActivity extends AppCompatActivity
   @SuppressWarnings("StatementWithEmptyBody")
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
-    // Handle navigation view item clicks here.
-    int id = item.getItemId();
-
-    if (id == R.id.nav_camera) {
-      // Handle the camera action
-    } else if (id == R.id.nav_gallery) {
-
-    } else if (id == R.id.nav_slideshow) {
-
-    } else if (id == R.id.nav_manage) {
-
-    } else if (id == R.id.nav_share) {
-
-    } else if (id == R.id.nav_send) {
-
-    }
-
-    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-    drawer.closeDrawer(GravityCompat.START);
-    return true;
+//    // Handle navigation view item clicks here.
+//    int id = item.getItemId();
+//
+//    if (id == R.id.nav_camera) {
+//      // Handle the camera action
+//    } else if (id == R.id.nav_gallery) {
+//
+//    } else if (id == R.id.nav_slideshow) {
+//
+//    } else if (id == R.id.nav_manage) {
+//
+//    } else if (id == R.id.nav_share) {
+//
+//    } else if (id == R.id.nav_send) {
+//
+//    }
+//
+//    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//    drawer.closeDrawer(GravityCompat.START);
+//    return true;
+    return false;
   }
 }

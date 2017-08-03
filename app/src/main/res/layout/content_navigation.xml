@@ -27,8 +27,9 @@
     android:id="@+id/databaseButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Databse Manager"
+    android:text="@string/databse_manager"
     android:layout_toLeftOf="@+id/newprButton"
+    android:layout_toStartOf="@+id/newprButton"
     tools:layout_editor_absoluteY="447dp"
     tools:layout_editor_absoluteX="16dp"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -54,6 +55,14 @@
     android:layout_marginRight="18dp"
     android:layout_marginStart="3dp"
     android:layout_marginLeft="3dp" />
+  <Button
+    android:id="@+id/how_to_use"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="How to use..."
+    app:layout_constraintStart_toEndOf="parent"
+    tools:layout_editor_absoluteX="146dp"
+    tools:layout_editor_absoluteY="194dp" />
 
 
 </android.support.constraint.ConstraintLayout>
