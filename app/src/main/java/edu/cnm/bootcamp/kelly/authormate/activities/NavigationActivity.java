@@ -23,6 +23,7 @@ import edu.cnm.bootcamp.kelly.authormate.helpers.OrmHelper;
 public class NavigationActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -123,7 +124,7 @@ public class NavigationActivity extends AppCompatActivity
     if (id == R.id.nav_gallery) {
       // Handle the camera action
     } else if (id == R.id.how_to_use) {
-      
+
 
     } else if (id == R.id.nav_slideshow) {
 

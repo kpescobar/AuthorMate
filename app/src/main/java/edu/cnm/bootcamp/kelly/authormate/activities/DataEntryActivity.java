@@ -17,41 +17,12 @@ import java.sql.SQLException;
 
 public class DataEntryActivity extends AppCompatActivity {
 
-  private OrmHelper ormHelper = null;
 
-  private synchronized OrmHelper getOrmHelper() {
-    if (ormHelper == null) {
-      ormHelper = OpenHelperManager.getHelper(this, OrmHelper.class);
-    }
-    return ormHelper;
-  }
-
-  private synchronized void releaseHelper() {
-    if (ormHelper != null) {
-      OpenHelperManager.releaseHelper();
-      ormHelper = null;
-    }
-  }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_data_entry);
-    Button button = (Button) findViewById(R.id.button);
-    button.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        try {
-          Dao<Project, Integer> dao = getOrmHelper().getProjectDao();
-          Project project = new Project();
-          EditText editText = (EditText) findViewById(R.id.editText);
-          project.setTitle(editText.getText().toString());
-          dao.create(project);
-        } catch (SQLException ex) {
-          ex.printStackTrace();
-        }
-      }
-    });
   }
 
 
