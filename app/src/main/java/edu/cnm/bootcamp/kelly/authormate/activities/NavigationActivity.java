@@ -20,10 +20,13 @@ import edu.cnm.bootcamp.kelly.authormate.R;
 import edu.cnm.bootcamp.kelly.authormate.entitites.Project;
 import edu.cnm.bootcamp.kelly.authormate.helpers.AndroidDatabaseManager;
 import edu.cnm.bootcamp.kelly.authormate.helpers.OrmHelper;
+import edu.cnm.bootcamp.kelly.authormate.services.TestService;
+import java.util.Date;
 
 public class NavigationActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
+  public DrawerLayout drawer;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,9 @@ public class NavigationActivity extends AppCompatActivity
 
     OrmHelper ormHelper = OpenHelperManager.getHelper(this, OrmHelper.class);
     ormHelper.getWritableDatabase().close();
+
+//    TestService.setServiceAlarm(this, true);
+    TestService.setServiceAlarm(this, new Date().getTime() + 1000 * 120, true);
 
     FloatingActionButton newprButton = (FloatingActionButton) findViewById(R.id.newprButton);
     newprButton.setOnClickListener(new OnClickListener() {
@@ -63,7 +69,7 @@ public class NavigationActivity extends AppCompatActivity
     });
 
 
-    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+    drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
         this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
     drawer.setDrawerListener(toggle);
@@ -71,6 +77,7 @@ public class NavigationActivity extends AppCompatActivity
 
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
+
   }
 
   private void showInstructions(boolean show) {
@@ -82,7 +89,7 @@ public class NavigationActivity extends AppCompatActivity
 
   @Override
   public void onBackPressed() {
-    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     if (drawer.isDrawerOpen(GravityCompat.START)) {
       drawer.closeDrawer(GravityCompat.START);
     } else {
