@@ -17,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import edu.cnm.bootcamp.kelly.authormate.R;
+import edu.cnm.bootcamp.kelly.authormate.entitites.Project;
 import edu.cnm.bootcamp.kelly.authormate.helpers.AndroidDatabaseManager;
 import edu.cnm.bootcamp.kelly.authormate.helpers.OrmHelper;
 
@@ -28,7 +29,7 @@ public class NavigationActivity extends AppCompatActivity
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_navigation);
-    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
     OrmHelper ormHelper = OpenHelperManager.getHelper(this, OrmHelper.class);
@@ -60,6 +61,7 @@ public class NavigationActivity extends AppCompatActivity
         startActivity(listActivity);
       }
     });
+
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -117,27 +119,43 @@ public class NavigationActivity extends AppCompatActivity
 
   @SuppressWarnings("StatementWithEmptyBody")
   @Override
+
+  // NICK "Why are there two of these ItemSelected methods??
   public boolean onNavigationItemSelected(MenuItem item) {
     // Handle navigation view item clicks here.
     int id = item.getItemId();
+    switch (id) {
+      case R.id.pr1:
+      case R.id.pr2:
+      case R.id.pr3:
+        Intent intent = new Intent(NavigationActivity.this, ProjectActivity.class);
+        startActivity(intent);
+        break;
+//      case R.id.how_to_use:
+//        Intent intentUse = new Intent(NavigationActivity.this, NavigationActivity.class);
+//        startActivity(intentUse);
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        drawer.isDrawerOpen(addContentView(View view, ););
+//        break;
 
-    if (id == R.id.nav_gallery) {
-      // Handle the camera action
-    } else if (id == R.id.how_to_use) {
+    }
 
 
-    } else if (id == R.id.nav_slideshow) {
-
-    } else if (id == R.id.nav_manage) {
+//    if (id == R.id.nav_gallery) {
+//      // Handle the camera action
+//    } else if (id == R.id.how_to_use) {
+//
+//
+//    } else if (id == R.id.nav_slideshow) {
+//      DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//      drawer.closeDrawer(GravityCompat.START);
+//      return true;
+//    } else if (id == R.id.nav_manage) {
 
 //    } else if (id == R.id.nav_share) {
 
 //    } else if (id == R.id.nav_send) {
 
-    }
-
-    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-    drawer.closeDrawer(GravityCompat.START);
     return true;
   }
 }

@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <group android:checkableBehavior="single">
     <item
+      app:showAsAction="withText"
       android:id="@+id/pr1"
       android:title="Project 1" />
     <item
-      android:id="@+id/nav_gallery"
-      android:icon="@drawable/ic_menu_gallery"
-      android:title="Gallery" />
+      android:id="@+id/pr2"
+      android:title="Project 2" />
     <item
-      android:id="@+id/nav_slideshow"
-      android:icon="@drawable/ic_menu_slideshow"
-      android:title="Slideshow" />
-    <item
-      android:id="@+id/nav_manage"
-      android:icon="@drawable/ic_menu_manage"
-      android:title="Tools" />
+      android:id="@+id/pr3"
+      android:title="Project 3" />
     <item
       android:id="@+id/how_to_use"
       android:title="How to use..." />
