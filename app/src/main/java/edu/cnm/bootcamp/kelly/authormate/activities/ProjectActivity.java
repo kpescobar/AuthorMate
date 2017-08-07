@@ -2,6 +2,8 @@ package edu.cnm.bootcamp.kelly.authormate.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TabHost;
@@ -17,9 +19,17 @@ public class ProjectActivity extends NavigationActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_project);
-    setContentView(R.layout.activity_navigation);
-
+//    setContentView(R.layout.activity_navigation);
+    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
   }
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    getMenuInflater().inflate(R.menu.activity_navigation_drawer, menu);
+    return true;
+  }
+
 
 //  private void setupTabs() {
 //    TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
